@@ -1,0 +1,43 @@
+{
+  "name": "google-search-from-csv",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.4.3",
+    "axios": "^0.24.0",
+    "bootstrap": "^5.1.3",
+    "classnames": "^2.3.1",
+    "i18n-js": "^3.8.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "turbolinks": "^5.2.0",
+    "url-template": "^2.0.8",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpacker-react": "^0.3.2"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "axios-mock-adapter": "^1.20.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.6.0",
+    "jest": "^27.4.7",
+    "jest-junit": "^13.0.0",
+    "prettier": "^2.5.1",
+    "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "test": "TZ=UTC jest",
+    "test:watch": "TZ=UTC jest --watch",
+    "test:ci": "yarn test --ci --testResultsProcessor jest-junit --runInBand",
+    "lint": "eslint --ext .js,.jsx app",
+    "fix:lint": "eslint --ext .js,.jsx app --fix",
+    "fix:prettier": "prettier --write \"app/javascript/components/**/*.*\""
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
