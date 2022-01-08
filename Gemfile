@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'clearance'
 gem 'dotenv-rails'
 gem 'i18n-js'
+gem 'interactor-rails'
 gem 'kaminari'
 gem 'rails_semantic_logger'
 gem 'webpacker-react', '~> 1.0.0.beta.1'
