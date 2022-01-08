@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to I18n.t('.app_name'), root_path, class: 'navbar-brand' %>
+
+  <ul class="nav justify-content-end">
+    <% if signed_in? %>
+      <li class=" align-self-center mr-3">
+        <%= current_user.email %>
+      </li>
+      <li>
+        <%= button_to I18n.t('layouts.application.sign_out'), sign_out_path, method: :delete, class: "btn btn-sm btn-secondary" %>
+      </li>
+    <% else %>
+      <li class="mr-2">
+          <%= button_to I18n.t('layouts.application.sign_in'), sign_in_path, method: :get, class: "btn btn-sm btn-primary" %>
+      </li>
+      <li>
+        <%= button_to I18n.t('layouts.application.sign_up'), sign_up_path, method: :get, class: "btn btn-sm btn-success" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-warning alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
