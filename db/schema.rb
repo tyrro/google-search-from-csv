@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2022_01_09_035013) do
   create_table "keywords", force: :cascade do |t|
     t.string "name", null: false
     t.integer "search_status", default: 0, null: false
-    t.integer "total_adwords"
-    t.integer "total_search_results"
-    t.float "total_search_time"
+    t.integer "total_search_results", default: 0, null: false
+    t.float "total_search_time", default: 0.0, null: false
+    t.integer "total_adwords", default: 0, null: false
     t.text "search_result_html"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

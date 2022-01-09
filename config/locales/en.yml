@@ -31,3 +31,17 @@
 
 en:
   app_name: 'Google Search with CSV'
+  attributes:
+    keyword:
+      name:
+        placeholder: Search keywords
+        title: Keyword
+      total_search_results: Total Search Results
+      total_search_time: Total Search Time
+      total_adwords: Total Adwords
+      total_links: Total Links
+      search_status: Search Status
+  destroyed: '%{resource} has been removed'
+  import:
+    choose_file: Please choose a file
+    successful: CSV import successful

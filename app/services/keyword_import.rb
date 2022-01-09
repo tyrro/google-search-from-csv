@@ -12,7 +12,7 @@ class KeywordImport
 
   def call(file)
     row_number = 0
-    CSV.foreach(file, headers: true) do |row|
+    CSV.foreach(file) do |row|
       row_number += 1
       begin
         keyword = create_instance(row)
@@ -45,7 +45,7 @@ class KeywordImport
   end
 
   def keyword_attributes(params)
-    name = params.last
+    name = params.first
     {
       name: name,
       user: user,

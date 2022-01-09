@@ -6,4 +6,8 @@ class Keyword < ApplicationRecord
   enum search_status: { in_progress: 0, successful: 1, failed: 2 }
 
   scope :search, ->(query) { where('LOWER(name) LIKE LOWER(?)', "#{query}%") }
+
+  def search_completed?
+    successful? || failed?
+  end
 end
