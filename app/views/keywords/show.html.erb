@@ -1,0 +1,2 @@
+<% content_for :page_title, "Search Result | #{@keyword.name}" %>
+<%= react_component 'KeywordSearchResultHTML', html: @keyword.search_result_html %>
