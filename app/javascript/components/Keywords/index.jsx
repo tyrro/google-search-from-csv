@@ -56,7 +56,7 @@ function SearchableKeywordTable({ sampleCSVFile }) {
     timer.current = setInterval(() => {
       setRetryCount(prevCount => prevCount + 1);
       fetchKeywords(searchParam, currentPage);
-    }, 500);
+    }, 2000);
 
     return () => {
       clearInterval(timer.current);
@@ -64,6 +64,10 @@ function SearchableKeywordTable({ sampleCSVFile }) {
   }, [currentPage, searchParam]);
 
   useEffect(() => {
+    if (keywords.length === 0) {
+      clearInterval(timer.current);
+    }
+
     if (keywords.length > 0 && keywords.every(keyword => keyword.searchCompleted === true)) {
       clearInterval(timer.current);
     }
