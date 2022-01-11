@@ -43,17 +43,12 @@ function CSVUpload({ sampleCSVFile, fetchKeywords }) {
   return (
     <form className="csv-upload-form col-sm ml-2" onSubmit={event => handleSubmitCSV(event)}>
       <input type="file" accept=".csv" onChange={event => setSelectedCSV(event.target.files[0])} />
-      <button type="submit" className="btn btn-sm btn-primary mr-2" disabled={!selectedCSV}>
-        Upload
-      </button>
-      <a
-        href={sampleCSVFile}
-        className="text-decoration-underline"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href={sampleCSVFile} className="mr-4" target="_blank" rel="noreferrer">
         Sample CSV
       </a>
+      <button type="submit" className="btn btn-sm btn-secondary" disabled={!selectedCSV}>
+        Upload
+      </button>
       {CSVUploadComplete && CSVUploadErrors.length === 0 && (
         <div className="csv-upload-form__successful">CSV Upload Successful</div>
       )}
