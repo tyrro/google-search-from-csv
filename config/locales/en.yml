@@ -36,8 +36,7 @@ en:
       name:
         placeholder: Search keywords
         title: Keyword
-      total_search_results: Total Search Results
-      total_search_time: Total Search Time
+      total_search_results_with_time_taken_text: Total Search Results with Time Taken Text
       total_adwords: Total Adwords
       total_links: Total Links
       search_status: Search Status
