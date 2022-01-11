@@ -8,8 +8,9 @@ function KeywordTable({ keywords }) {
       <thead className="thead-light">
         <tr>
           <th scope="col">{I18n.t(`attributes.keyword.name.title`)}</th>
-          <th scope="col">{I18n.t(`attributes.keyword.total_search_results`)}</th>
-          <th scope="col">{I18n.t(`attributes.keyword.total_search_time`)}</th>
+          <th scope="col">
+            {I18n.t(`attributes.keyword.total_search_results_with_time_taken_text`)}
+          </th>
           <th scope="col">{I18n.t(`attributes.keyword.total_adwords`)}</th>
           <th scope="col">{I18n.t(`attributes.keyword.total_links`)}</th>
           <th scope="col">{I18n.t(`attributes.keyword.search_status`)}</th>
@@ -30,8 +31,8 @@ KeywordTable.propTypes = {
     PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,
-      totalSearchResults: PropTypes.number,
-      totalSearchTime: PropTypes.number,
+      totalSearchResultsWithTimeTakenText: PropTypes.string.isRequired,
+      searchResultHtmlPath: PropTypes.string.isRequired,
       totalAdwords: PropTypes.number,
       totalLinks: PropTypes.number,
       searchStatus: PropTypes.string,

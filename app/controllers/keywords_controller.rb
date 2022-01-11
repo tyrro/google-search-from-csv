@@ -1,5 +1,5 @@
 class KeywordsController < ApplicationController
-  before_action :set_keyword, only: :destroy
+  before_action :set_keyword, only: :show
 
   def index
     @keywords = current_user.keywords
@@ -7,18 +7,17 @@ class KeywordsController < ApplicationController
     @keywords = Queries::Paginate.call(params, @keywords)
   end
 
-  def destroy
-    @keyword.destroy!
-    render json: { message: t('destroyed', resource: @keyword.model_name.human) }
-  end
+  def show; end
 
   def import
+    importer = KeywordImport.new(current_user)
     result = ImportCsv.call(
-      importer: KeywordImport.new(current_user),
+      importer: importer,
       params: params,
     )
 
     if result.success?
+      SearchKeywordsJob.perform_later(importer.keyword_ids)
       render json: { error: nil }
     else
       render json: { error: result.errors }, status: :unprocessable_entity
@@ -29,5 +28,7 @@ class KeywordsController < ApplicationController
 
   def set_keyword
     @keyword = current_user.keywords.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 end

@@ -51,4 +51,8 @@ class KeywordImport
       user: user,
     }
   end
+
+  def keyword_ids
+    results.pluck(:id)
+  end
 end

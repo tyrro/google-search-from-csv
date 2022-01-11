@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'clearance'
 gem 'dotenv-rails'
+gem 'httparty'
 gem 'i18n-js'
 gem 'interactor-rails'
 gem 'kaminari'
@@ -38,7 +39,7 @@ gem 'webpacker-react', '~> 1.0.0.beta.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: %i(mri mingw x64_mingw)
   gem 'factory_bot_rails'
   gem 'rspec-rails'
 end
@@ -64,4 +65,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
