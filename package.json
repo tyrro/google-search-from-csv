@@ -2,6 +2,7 @@
   "name": "google-search-from-csv",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.10.4",
     "@rails/webpacker": "5.4.3",
     "axios": "^0.24.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
@@ -27,7 +28,6 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
-    "@babel/preset-react": "^7.10.4",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "axios-mock-adapter": "^1.20.0",
     "enzyme": "^3.11.0",
