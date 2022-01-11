@@ -6,6 +6,10 @@ services:
       - postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+
+  redis:
+    image: redis:4.0-alpine
+
   web:
     build: .
     command: >
@@ -20,7 +24,18 @@ services:
       - 3000:3000
     depends_on:
       - postgres
+      - redis
     tty: true
     stdin_open: true
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    depends_on:
+      - redis
+    working_dir: /var/www/google-search-from-csv
+    volumes:
+      - .:/var/www/google-search-from-csv
+
 volumes:
   postgres-data:
