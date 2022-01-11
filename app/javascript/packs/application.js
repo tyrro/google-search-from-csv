@@ -10,5 +10,6 @@ import '../shared/i18n-js';
 import '../stylesheets/index.scss';
 
 import SearchableKeywordTable from '../components/Keywords';
+import KeywordSearchResultHTML from '../components/Keywords/SearchResultHTML';
 
-WebpackerReact.setup({ SearchableKeywordTable });
+WebpackerReact.setup({ SearchableKeywordTable, KeywordSearchResultHTML });
