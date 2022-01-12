@@ -34,7 +34,6 @@ gem 'i18n-js'
 gem 'interactor-rails'
 gem 'kaminari'
 gem 'rails_semantic_logger'
-gem 'sidekiq'
 gem 'webpacker-react', '~> 1.0.0.beta.1'
 
 group :development, :test do
