@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'throttle-debounce';
 
-import SearchBar from '../SearchBar';
-import CSVUpload from '../CSVUpload';
-import KeywordTable from './Table';
-import Pagination from '../Pagination';
+import SearchBar from '../../components/SearchBar';
+import CSVUpload from '../../components/CSVUpload';
+import KeywordTable from '../../components/Keywords/Table';
+import Pagination from '../../components/Pagination';
 
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
