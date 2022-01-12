@@ -1,6 +1,6 @@
 # Google Search From CSV
 
-![Demo](screenshot/workflow.mov)
+![Demo](screenshot/workflow.gif)
 
 This is a sample app where an user can login and upload keywords in a CSV, and the uploaded keywords are searched in Google, and the user is shown search results.
 
