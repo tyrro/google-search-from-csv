@@ -52,7 +52,7 @@ class KeywordImport
     }
   end
 
-  def keyword_ids
-    results.pluck(:id)
+  def keywords
+    results
   end
 end
