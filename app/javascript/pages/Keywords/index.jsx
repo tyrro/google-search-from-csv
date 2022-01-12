@@ -2,15 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'throttle-debounce';
 
-import SearchBar from '../SearchBar';
-import CSVUpload from '../CSVUpload';
-import KeywordTable from './Table';
-import Pagination from '../Pagination';
+import SearchBar from '../../components/SearchBar';
+import CSVUpload from '../../components/CSVUpload';
+import KeywordTable from '../../components/Keywords/Table';
+import Pagination from '../../components/Pagination';
 
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
-function SearchableKeywordTable({ sampleCSVFile }) {
+function Keywords({ sampleCSVFile }) {
   const [keywords, setKeywords] = useState([]);
   const [searchParam, setSearchParam] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -106,8 +106,8 @@ function SearchableKeywordTable({ sampleCSVFile }) {
   );
 }
 
-export default SearchableKeywordTable;
+export default Keywords;
 
-SearchableKeywordTable.propTypes = {
+Keywords.propTypes = {
   sampleCSVFile: PropTypes.string.isRequired,
 };
