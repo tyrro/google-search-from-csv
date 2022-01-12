@@ -9,7 +9,7 @@ import '../shared/i18n-js';
 
 import '../stylesheets/index.scss';
 
-import SearchableKeywordTable from '../components/Keywords';
+import Keywords from '../components/Keywords';
 import KeywordSearchResultHTML from '../components/Keywords/SearchResultHTML';
 
-WebpackerReact.setup({ SearchableKeywordTable, KeywordSearchResultHTML });
+WebpackerReact.setup({ Keywords, KeywordSearchResultHTML });

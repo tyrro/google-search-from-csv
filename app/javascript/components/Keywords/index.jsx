@@ -10,7 +10,7 @@ import Pagination from '../Pagination';
 import httpClient from '../../shared/httpClient';
 import routes from '../../routes';
 
-function SearchableKeywordTable({ sampleCSVFile }) {
+function Keywords({ sampleCSVFile }) {
   const [keywords, setKeywords] = useState([]);
   const [searchParam, setSearchParam] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -106,8 +106,8 @@ function SearchableKeywordTable({ sampleCSVFile }) {
   );
 }
 
-export default SearchableKeywordTable;
+export default Keywords;
 
-SearchableKeywordTable.propTypes = {
+Keywords.propTypes = {
   sampleCSVFile: PropTypes.string.isRequired,
 };
