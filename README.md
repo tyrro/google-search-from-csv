@@ -14,11 +14,10 @@ The backend of this project is developed in Rails and the Frontend part in React
   git clone git@github.com:rajibds/google-search-from-csv.git
   ```
 
-- Run Docker
+- Run
 
   ```bash
-  docker-compose up --build
-  docker-compose run web rails db:setup
+  rails db:setup
   ```
 
 Server is now up and running at: http://localhost:3000
