@@ -1,6 +1,6 @@
 class Keyword < ApplicationRecord
   belongs_to :user
-  has_many :links
+  has_many :links, dependent: :destroy
   accepts_nested_attributes_for :links
 
   validates :name, presence: true

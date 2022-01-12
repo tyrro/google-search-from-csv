@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 
-const Pagination = ({
+function Pagination({
   pageCount,
   forcePage,
   onPageChange,
   pageRangeDisplayed,
   marginPagesDisplayed,
-}) => {
+}) {
   return (
     <ReactPaginate
       pageCount={pageCount}
@@ -29,7 +29,7 @@ const Pagination = ({
       previousLabel="Previous"
     />
   );
-};
+}
 
 Pagination.defaultProps = {
   pageRangeDisplayed: 3,

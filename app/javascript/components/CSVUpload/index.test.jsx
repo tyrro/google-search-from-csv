@@ -1,17 +1,20 @@
 import React from 'react';
 import axios from 'axios';
-import wait from waait;
+import wait from 'waait';
 import { shallow } from 'enzyme';
 
-import CSVUpload from './CSVUpload';
+import CSVUpload from './index';
 
-const props = { fetchCars: jest.fn() };
 const file = new Blob(['file contents'], { type: 'csv' });
+const props = { fetchKeywords: jest.fn(), sampleCSVFile: '/link/to/file' };
 
 const uploadCSV = wrapper =>
   wrapper.find('input[type="file"]').simulate('change', {
     target: { files: [file] },
   });
+
+const uploadSuccessfulText = 'CSV Upload Successful';
+const uploadFailedText = 'CSV Upload Unsuccessful';
 
 describe(CSVUpload, () => {
   const wrapper = shallow(<CSVUpload {...props} />);
@@ -26,7 +29,7 @@ describe(CSVUpload, () => {
   });
 
   test('it shows a successful message if the file is upload to server successfully', async () => {
-    axios.onPost(/cars\/import/).reply(200, {
+    axios.onPost(/keywords\/import/).reply(200, {
       error: null,
     });
 
@@ -35,12 +38,12 @@ describe(CSVUpload, () => {
 
     await wait();
 
-    expect(wrapper.find('div.csv-upload-form__successful').text()).toEqual('CSV Upload Successful');
+    expect(wrapper.find('div.csv-upload-form__successful').text()).toEqual(uploadSuccessfulText);
   });
 
   test('it shows an unsuccessful message if the file fails to upload to server successfully', async () => {
-    axios.onPost(/cars\/import/).reply(422, {
-      error: [{ row: 1, message: 'Manufacturer can not be blank' }],
+    axios.onPost(/keywords\/import/).reply(422, {
+      error: [{ row: 1, message: 'error' }],
     });
 
     uploadCSV(wrapper);
@@ -48,8 +51,6 @@ describe(CSVUpload, () => {
 
     await wait();
 
-    expect(wrapper.find('div.csv-upload-form__unsuccessful').text()).toEqual(
-      'CSV Upload Unsuccessful',
-    );
+    expect(wrapper.find('div.csv-upload-form__unsuccessful').text()).toEqual(uploadFailedText);
   });
 });

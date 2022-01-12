@@ -17,7 +17,7 @@ class KeywordsController < ApplicationController
     )
 
     if result.success?
-      SearchKeywordsJob.perform_later(importer.keyword_ids)
+      SearchKeywords.call(keywords: importer.keywords)
       render json: { error: nil }
     else
       render json: { error: result.errors }, status: :unprocessable_entity
