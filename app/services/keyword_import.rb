@@ -14,20 +14,14 @@ class KeywordImport
     row_number = 0
     CSV.foreach(file) do |row|
       row_number += 1
-      begin
-        keyword = create_instance(row)
-        if keyword.valid?
-          results << keyword
-        else
-          errors << {
-            row: row_number,
-            message: keyword.errors.full_messages.to_sentence,
-          }
-        end
-      rescue ActiveRecord::RecordNotFound, ArgumentError => error
+
+      keyword = instantiate_new_record(row)
+      if keyword.valid?
+        results << keyword
+      else
         errors << {
           row: row_number,
-          messages: [error.message],
+          message: keyword.errors.full_messages.to_sentence,
         }
       end
     end
@@ -40,7 +34,7 @@ class KeywordImport
     }
   end
 
-  def create_instance(params)
+  def instantiate_new_record(params)
     Keyword.new(keyword_attributes(params))
   end
 
