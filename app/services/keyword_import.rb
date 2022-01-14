@@ -15,7 +15,7 @@ class KeywordImport
     CSV.foreach(file) do |row|
       row_number += 1
 
-      keyword = create_instance(row)
+      keyword = instantiate_new_record(row)
       if keyword.valid?
         results << keyword
       else
@@ -34,7 +34,7 @@ class KeywordImport
     }
   end
 
-  def create_instance(params)
+  def instantiate_new_record(params)
     Keyword.new(keyword_attributes(params))
   end
 
