@@ -1,4 +1,15 @@
 version: '3.9'
+
+x-default: &default
+  build: .
+  volumes:
+    - .:/var/www/google-search-from-csv
+    - /var/www/google-search-from-csv/node_modules
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+    POSTGRES_HOST: postgres
+
 services:
   postgres:
     image: postgres:13.4-alpine
@@ -8,15 +19,12 @@ services:
       POSTGRES_PASSWORD: password
 
   web:
-    build: .
+    <<: *default
     command: >
       sh -c "
         rm -rf tmp/pids/server.pid \
         & ./bin/webpack-dev-server \
         & bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
-      - .:/var/www/google-search-from-csv
-      - /var/www/google-search-from-csv/node_modules
     ports:
       - 3000:3000
     depends_on:
