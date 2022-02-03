@@ -4,7 +4,8 @@ x-default: &default
   build: .
   volumes:
     - .:/var/www/google-search-from-csv
-    - /var/www/google-search-from-csv/node_modules
+    - bundle_install:/usr/local/bundle
+    - node_modules:/var/www/google-search-from-csv/node_modules
   environment:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: password
@@ -35,3 +36,5 @@ services:
 
 volumes:
   postgres-data:
+  bundle_install:
+  node_modules:
