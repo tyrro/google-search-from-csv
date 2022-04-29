@@ -2,6 +2,7 @@
   "name": "google-search-from-csv",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.16.7",
     "@babel/preset-react": "^7.10.4",
     "@rails/webpacker": "5.4.3",
     "axios": "^0.24.0",
@@ -21,12 +22,10 @@
     "turbolinks": "^5.2.0",
     "url-template": "^2.0.8",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
     "webpacker-react": "^0.3.2"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "axios-mock-adapter": "^1.20.0",
